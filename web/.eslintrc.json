@@ -5,11 +5,14 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
     "airbnb",
     "prettier",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -25,6 +28,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/extensions": "off",
     "prettier/prettier": [
       "warn",
@@ -44,5 +48,10 @@
     "no-undef": "off",
     "no-unused-expressions": "off",
     "spaced-comment": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
