@@ -28,6 +28,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "camelcase": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/extensions": "off",
     "prettier/prettier": [
@@ -42,11 +43,17 @@
     ],
     "react/jsx-one-expression-per-line": "off",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "no-alert": "off",
     "no-console": "off",
     "no-param-reassign": "off",
     "no-use-before-define": "off",
     "no-undef": "off",
     "no-unused-expressions": "off",
+    "no-shadow": "off",
     "spaced-comment": "off"
   },
   "settings": {
