@@ -1,0 +1,24 @@
+#alert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+#alert svg {
+  width: 48px;
+  height: 48px;
+  color: #34cb79;
+  margin-bottom: 24px;
+}
+
+#alert h1 {
+  color: #fff;
+}
