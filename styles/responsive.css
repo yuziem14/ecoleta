@@ -1,3 +1,61 @@
+@media (max-width: 460px) {
+  #page-create-point {
+    margin: 0;
+  }
+
+  #page-create-point header,
+  #page-search-results header {
+    flex-direction: row-reverse;
+    padding: 0 10px;
+  }
+
+  #page-create-point header a,
+  #page-search-results header a {
+    font-size: 0.01px;
+  }
+
+  #page-create-point header a span,
+  #page-search-results header a span {
+    width: 32px;
+    height: 32px;
+  }
+
+  #page-create-point form {
+    width: 100vw;
+    padding: 48px;
+  }
+
+  #page-create-point form h1 {
+    text-align: center;
+  }
+
+  #modal .content {
+    width: 95vw;
+  }
+
+  #modal .header h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 740px) {
+  #page-create-point form .field-group {
+    flex-direction: column;
+  }
+
+  #page-create-point form .field-group .field {
+    margin-left: 0;
+  }
+
+  #page-create-point form button {
+    width: 100%;
+  }
+
+  #page-create-point .items-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   #page-home {
     background-position-x: 70vw;
@@ -17,6 +75,14 @@
 
   #page-home main {
     align-items: center;
+  }
+
+  #page-search-results .cards {
+    grid-template-columns: 1fr;
+  }
+
+  #page-search-results .cards img {
+    height: 250px;
   }
 }
 
