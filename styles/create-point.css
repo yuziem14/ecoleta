@@ -23,12 +23,13 @@
   width: 20px;
   height: 24px;
   background-image: url('../assets/arrow-left.svg');
+  background-size: cover;
   margin-right: 16px;
 }
 
 form {
   max-width: 730px;
-  background-color: #fff;
+  background-color: var(--block-color);
   border-radius: 8px;
   padding: 64px;
   margin: 80px auto;
@@ -65,7 +66,7 @@ form .field-group {
 form input,
 form select {
   font-size: 16px;
-  background-color: #f0f0f5;
+  background-color: var(--background-primary);
   border: 0;
   border-radius: 8px;
   padding: 16px 24px;
@@ -135,7 +136,7 @@ form button:hover {
 
 .items-grid li.selected {
   background: #e1faec;
-  border: 2px solid #34cb79;
+  border: 2px solid var(--primary-color);
 }
 
 .items-grid li img,
