@@ -6,6 +6,8 @@ import { FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
 import axios from 'axios';
 import api from '../../services/api';
 
+import Dropzone from '../../components/Dropzone';
+
 import Alert from '../Alert';
 
 import './styles.css';
@@ -30,6 +32,7 @@ const CreatePoint = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [ufs, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
+  const [selectedFile, setSelectedFile] = useState<File>();
 
   const [initialPosition, setInitialPosition] = useState<[number, number]>([
     0,
@@ -138,16 +141,20 @@ const CreatePoint = () => {
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
 
-    const data = {
-      name,
-      email,
-      phone_number,
-      uf,
-      city,
-      latitude,
-      longitude,
-      items,
-    };
+    const data = new FormData();
+
+    data.append('name', name);
+    data.append('email', email);
+    data.append('phone_number', phone_number);
+    data.append('uf', uf);
+    data.append('city', city);
+    data.append('latitude', String(latitude));
+    data.append('longitude', String(longitude));
+    data.append('items', items.join(','));
+
+    if (selectedFile) {
+      data.append('image', selectedFile);
+    }
 
     api.post('points', data).then(() => {
       setShowAlert(true);
@@ -174,6 +181,8 @@ const CreatePoint = () => {
         <h1>
           <p>Cadastro do</p> Ponto de Coleta
         </h1>
+
+        <Dropzone onFileUploaded={setSelectedFile} />
 
         <fieldset>
           <legend>
