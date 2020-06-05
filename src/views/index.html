@@ -1,80 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt_br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Ubuntu:wght@700&display=swap"
-      rel="stylesheet"
-    />
+{% extends "layouts/layout.html" %}
 
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/home.css" />
-    <link rel="stylesheet" href="/styles/modal.css" />
+{% set pageId = "page-home" %}
 
-    <link rel="stylesheet" href="/styles/responsive.css" />
-    <title>Ecoleta</title>
-  </head>
-  <body>
-    <div id="page-home">
-      <div class="content">
-        <header>
-          <img src="/assets/logo.svg" alt="Ecoleta Logo" />
-          <a href="/create-point.html">
-            <span></span>
-            Cadastar Ponto de Coleta
-          </a>
-        </header>
+{% block styles %}
+  <link rel="stylesheet" href="/styles/home.css"/>
+  <link rel="stylesheet" href="/styles/modal.css"/>
+{% endblock styles %}
 
-        <main>
-          <h1>Seu marketplace de coleta de resíduos</h1>
-          <p>
-            Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente
-          </p>
-          <a href="#"
-            ><span></span><strong>Pesquisar pontos de coleta</strong></a
-          >
-        </main>
-      </div>
-    </div>
+{% block content %}
+  <div class="content">
+    <header>
+      <img src="/assets/logo.svg" alt="Ecoleta Logo"/>
+      <a href="/create-point">
+        <span></span>
+        Cadastar Ponto de Coleta
+      </a>
+    </header>
 
-    <div id="modal" class="hide">
-      <div class="content">
-        <div class="header">
-          <h1>Pontos de coleta</h1>
-          <a href="#">Fechar</a>
-        </div>
+    <main>
+      <h1>Seu marketplace de coleta de resíduos</h1>
+      <p>
+        Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente
+      </p>
+      <a href="#">
+        <span></span>
+        <strong>Pesquisar pontos de coleta</strong>
+      </a >
+    </main>
+  </div>
+{% endblock content %}
 
-        <form action="/search-results.html">
-          <label for="search">Cidade</label>
-          <div class="search field">
-            <input
-              type="text"
-              name="search"
-              placeholder="Pesquise por cidade"
-            />
-            <button>
-              <img src="/assets/search.svg" alt="Buscar" />
-            </button>
-          </div>
+{% block modal %}
+  {% include "partials/modal.html" %}
+{% endblock modal %}
 
-          <!-- <div class="field-group">
-            <label for="city">Cidade</label>
-            <input type="text" name="search" placeholder="Informe a cidade" />
-          </div>
-          <div class="field-group">
-            <label for="city">Estado</label>
-            <input type="text" name="search" placeholder="Informe o estado" />
-          </div>
-          <button>
-            <p>Buscar</p>
-            <span></span>
-            <img src="/assets/search.svg" alt="Buscar" />
-          </button> -->
-        </form>
-      </div>
-    </div>
-
-    <script defer src="/scripts/index.js"></script>
-  </body>
-</html>
+{% block scripts %}
+  <script defer="defer" src="/scripts/index.js"></script>
+{% endblock scripts %}
