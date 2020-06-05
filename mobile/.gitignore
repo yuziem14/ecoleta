@@ -9,6 +9,7 @@ package-lock.json
 *.key
 *.mobileprovision
 *.orig.*
+*.log
 web-build/
 web-report/
 
