@@ -1,0 +1,21 @@
+{
+  "name": "ecoleta-starter",
+  "version": "1.0.0",
+  "description": "Ecoleta is a project for the Next Level Week made by Rocketseat",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon --ignore node_modules/ ."
+  },
+  "keywords": [
+    "ecoleta",
+    "ecoleta-starter"
+  ],
+  "author": "Yuri Ziemba",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
