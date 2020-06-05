@@ -1,4 +1,8 @@
 @media (max-width: 460px) {
+  #page-home {
+    margin-bottom: 32px;
+  }
+
   #page-create-point {
     margin: 0;
   }
@@ -27,6 +31,14 @@
 
   #page-create-point form h1 {
     text-align: center;
+  }
+
+  #page-create-point legend {
+    display: block;
+  }
+
+  #page-create-point legend h2 {
+    margin-bottom: 10px;
   }
 
   #modal .content {
