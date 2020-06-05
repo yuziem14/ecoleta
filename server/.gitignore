@@ -3,3 +3,8 @@ package-lock.json
 *.lock
 yarn*.log
 *.sqlite
+
+# ignore upload image files
+/uploads/*.png
+/uploads/*.jpg
+/uploads/*.jpeg
