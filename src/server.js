@@ -5,6 +5,7 @@ const database = require('./database/db');
 
 const server = express();
 
+server.use(express.urlencoded({ extended: true }));
 server.use(express.static('public'));
 
 nunjucks.configure(path.resolve(__dirname, 'views'), {
@@ -16,16 +17,65 @@ server.get('/', (request, response) => {
   return response.render('index.html');
 });
 
-server.get('/create-point', (request, response) => {
+server.get('/points/create', (request, response) => {
   return response.render('create-point.html');
 });
 
-server.get('/search', (request, response) => {
-  database.all('SELECT * FROM places', (err, places) => {
-    if (err) return console.log(err);
+server.post('/points', (request, response) => {
+  const { image, name, address, complement, state, city, items } = request.body;
+  const data = [image, name, address, complement, state, city, items];
+  const insertQuery = `
+      INSERT INTO places (
+        image,
+        name,
+        address,
+        complement,
+        state,
+        city,
+        items
+      ) VALUES (?,?,?,?,?,?,?);
+  `;
 
-    return response.render('search-results.html', { places });
-  });
+  function callback(err) {
+    const SUCCESS_MESSAGE = 'Cadastro concluído!';
+    const ERROR_MESSAGE =
+      'Whoops... Houve um problema, tente novamente mais tarde.';
+
+    const viewParams = {
+      showModal: true,
+      message: SUCCESS_MESSAGE,
+      icon: 'check.svg',
+      class: '',
+    };
+
+    if (err) {
+      return response.render('create-point.html', {
+        showModal: true,
+        message: ERROR_MESSAGE,
+        icon: 'x.svg',
+        class: 'failed',
+      });
+    }
+
+    return response.render('create-point.html', viewParams);
+  }
+
+  database.run(insertQuery, data, callback);
+});
+
+server.get('/points', (request, response) => {
+  const { search } = request.query;
+
+  if (!search) return response.render('search-results.html', { places: [] });
+
+  database.all(
+    `SELECT * FROM places WHERE city LIKE '%${search}%'`,
+    (err, places) => {
+      if (err) return console.log(err);
+
+      return response.render('search-results.html', { places });
+    }
+  );
 });
 
 const PORT = 3000;

@@ -64,8 +64,10 @@ async function getCities(event) {
 
 function handleSelectedItem(event) {
   const itemLi = event.target;
-  const itemId = Number(itemLi.dataset.id);
+  const itemId = itemLi.dataset.id;
   const alreadySelected = selectedItems.findIndex(item => item === itemId);
+
+  itemLi.classList.toggle('selected');
 
   if (alreadySelected > -1) {
     const filteredItems = selectedItems.filter(item => item !== itemId);
@@ -74,9 +76,7 @@ function handleSelectedItem(event) {
     selectedItems.push(itemId);
   }
 
-  collectedItems.value = selectedItems;
-
-  itemLi.classList.toggle('selected');
+  collectedItems.value = selectedItems.join(', ');
 }
 
 populateUFs();
