@@ -73,6 +73,8 @@ const Detail: React.FC = () => {
   }
 
   function handleWhatsapp() {
+    const phone = Math.trunc(Number(data.point.phone_number));
+
     Linking.openURL(
       `whatsapp://send?phone=${data.point.phone_number}&text=Tenho interesse sobre coleta de resíduos`
     );

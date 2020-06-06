@@ -163,7 +163,7 @@ const CreatePoint: React.FC = () => {
 
     data.append('name', name);
     data.append('email', email);
-    data.append('phone_number', phone_number);
+    data.append('phone_number', phone_number.replace(/\D/g, ''));
     data.append('uf', uf);
     data.append('city', city);
     data.append('latitude', String(latitude));

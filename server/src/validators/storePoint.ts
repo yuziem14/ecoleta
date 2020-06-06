@@ -7,7 +7,7 @@ export default celebrate(
 
       email: Joi.string().required().email(),
 
-      phone_number: Joi.number().required(),
+      phone_number: Joi.number().integer().required(),
 
       latitude: Joi.number().required(),
 
