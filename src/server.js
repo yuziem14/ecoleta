@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const nunjucks = require('nunjucks');
+const database = require('./database/db');
 
 const server = express();
 
@@ -20,7 +21,11 @@ server.get('/create-point', (request, response) => {
 });
 
 server.get('/search', (request, response) => {
-  return response.render('search-results.html');
+  database.all('SELECT * FROM places', (err, places) => {
+    if (err) return console.log(err);
+
+    return response.render('search-results.html', { places });
+  });
 });
 
 const PORT = 3000;

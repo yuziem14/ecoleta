@@ -4,6 +4,8 @@
   "description": "Ecoleta is a project for the Next Level Week made by Rocketseat",
   "main": "src/server.js",
   "scripts": {
+    "db:create": "node src/database/db.js",
+    "db:seed": "node src/database/seed.js",
     "start": "nodemon --ignore node_modules/ ."
   },
   "keywords": [
@@ -14,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "nunjucks": "^3.2.1"
+    "nunjucks": "^3.2.1",
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
