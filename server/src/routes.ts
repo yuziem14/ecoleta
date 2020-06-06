@@ -1,6 +1,5 @@
 import express from 'express';
 import multer from 'multer';
-import pointValidator from './validators/storePoint';
 import multerConfig from './config/multer';
 
 import PointsController from './controllers/PointsController';

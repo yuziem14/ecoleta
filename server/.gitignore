@@ -9,3 +9,5 @@ yarn*.log
 /uploads/*.jpg
 /uploads/*.jpeg
 !/uploads/no-image.png
+
+.env
