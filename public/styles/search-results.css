@@ -1,11 +1,16 @@
+body {
+  background-color: var(--block-color);
+}
+
 body::after {
   content: '';
-  position: fixed;
-  top: 260px;
+  position: absolute;
+  height: 16rem;
+  top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: var(--block-color);
+  background-color: var(--background-primary);
   z-index: -5;
 }
 
