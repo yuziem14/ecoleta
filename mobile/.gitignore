@@ -13,5 +13,7 @@ package-lock.json
 web-build/
 web-report/
 
+src/config/env.ts
+
 # macOS
 .DS_Store
