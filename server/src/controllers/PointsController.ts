@@ -19,6 +19,7 @@ class PointsController {
 
     const serializedPoints = points.map(point => ({
       ...point,
+      phone_number: String(Math.trunc(point.phone_number)),
       image_url: `http://${process.env.HOST}:${process.env.PORT}/uploads/${point.image}`,
     }));
 
@@ -36,6 +37,7 @@ class PointsController {
 
     const serializedPoint = {
       ...point,
+      phone_number: String(Math.trunc(point.phone_number)),
       image_url: `http://${process.env.HOST}:${process.env.PORT}/uploads/${point.image}`,
     };
 
