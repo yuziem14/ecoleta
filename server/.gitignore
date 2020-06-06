@@ -8,3 +8,4 @@ yarn*.log
 /uploads/*.png
 /uploads/*.jpg
 /uploads/*.jpeg
+!/uploads/no-image.png
