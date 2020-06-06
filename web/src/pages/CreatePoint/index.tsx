@@ -2,16 +2,14 @@ import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
-import { FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
+import { FiArrowLeft, FiCheckCircle, FiXCircle } from 'react-icons/fi';
 import axios from 'axios';
+
 import api from '../../services/api';
-
 import Dropzone from '../../components/Dropzone';
-
-import Alert from '../Alert';
+import Alert from '../../components/Alert';
 
 import './styles.css';
-
 import logo from '../../assets/logo.svg';
 
 interface Item {
@@ -28,7 +26,11 @@ interface IBGECityResponse {
   nome: string;
 }
 
-const CreatePoint = () => {
+const SUCCESS_MESSAGE = 'Cadastro concluído!';
+const ERROR_MESSAGE =
+  'Whoops... Houve um problema, tente novamente mais tarde!';
+
+const CreatePoint: React.FC = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [ufs, setUfs] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
@@ -54,6 +56,7 @@ const CreatePoint = () => {
   ]);
 
   const [showAlert, setShowAlert] = useState<boolean>(false);
+  const [alertMessage, setAlertMessage] = useState<string>('');
 
   const history = useHistory();
 
@@ -97,6 +100,21 @@ const CreatePoint = () => {
         setCities(cityNames);
       });
   }, [selectedUf]);
+
+  useEffect(() => {
+    if (!alertMessage) return;
+
+    setShowAlert(true);
+
+    setTimeout(() => {
+      setShowAlert(false);
+      setAlertMessage('');
+
+      if (alertMessage === SUCCESS_MESSAGE) {
+        history.push('/');
+      }
+    }, 2000);
+  }, [alertMessage]);
 
   function handleSelectUf(event: ChangeEvent<HTMLSelectElement>) {
     setSelectedUf(event.target.value);
@@ -156,18 +174,29 @@ const CreatePoint = () => {
       data.append('image', selectedFile);
     }
 
-    api.post('points', data).then(() => {
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-        history.push('/');
-      }, 2000);
-    });
+    api
+      .post('points', data)
+      .then(() => {
+        setAlertMessage(SUCCESS_MESSAGE);
+      })
+      .catch(err => {
+        setAlertMessage(ERROR_MESSAGE);
+        console.error(err);
+      });
   }
 
   return (
     <div id="page-create-point">
-      {showAlert && <Alert title="Cadastro concluído!" Icon={FiCheckCircle} />}
+      {showAlert && (
+        <Alert
+          title={alertMessage}
+          Icon={
+            alertMessage === SUCCESS_MESSAGE
+              ? FiCheckCircle
+              : () => <FiXCircle color="#ff3838" />
+          }
+        />
+      )}
 
       <header>
         <img src={logo} alt="Ecoleta" />
