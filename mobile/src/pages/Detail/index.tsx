@@ -11,6 +11,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import * as MailComposer from 'expo-mail-composer';
 import { Feather as Icon, FontAwesome } from '@expo/vector-icons';
+import axios from 'axios';
 
 import api from '../../services/api';
 
@@ -44,10 +45,21 @@ const Detail: React.FC = () => {
   const routeParams = route.params as Params;
 
   useEffect(() => {
-    api.get(`points/${routeParams.point_id}`).then(response => {
-      setData(response.data);
-    });
-  });
+    const source = axios.CancelToken.source();
+
+    const fetchPoint = async () => {
+      const { data } = await api.get(`points/${routeParams.point_id}`, {
+        cancelToken: source.token,
+      });
+      setData(data);
+    };
+
+    fetchPoint();
+
+    return function cleanUp() {
+      source.cancel();
+    };
+  }, []);
 
   function handleNavigateBack() {
     navigation.goBack();
