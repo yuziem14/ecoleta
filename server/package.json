@@ -17,7 +17,7 @@
     "ecoleta-backend"
   ],
   "author": "Yuri Ziemba",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "celebrate": "^12.1.1",
     "cors": "^2.8.5",
