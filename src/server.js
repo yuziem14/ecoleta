@@ -49,12 +49,9 @@ server.post('/points', (request, response) => {
     };
 
     if (err) {
-      return response.render('create-point.html', {
-        showModal: true,
-        message: ERROR_MESSAGE,
-        icon: 'x.svg',
-        class: 'failed',
-      });
+      viewParams.message = ERROR_MESSAGE;
+      viewParams.icon = 'x.svg';
+      viewParams.class = 'failed';
     }
 
     return response.render('create-point.html', viewParams);
