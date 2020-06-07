@@ -47,6 +47,7 @@
 
 # :construction: Requirements
 
+- [x] Git
 - [x] Node.js
 - [x] Expo CLI
 
