@@ -5,9 +5,9 @@ yarn*.log
 *.sqlite
 
 # ignore upload image files
-/uploads/*.png
-/uploads/*.jpg
-/uploads/*.jpeg
+/uploads
 !/uploads/no-image.png
+!/uploads/*.svg
+!/uploads/.gitkeep
 
 .env
