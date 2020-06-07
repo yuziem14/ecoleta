@@ -32,7 +32,7 @@
 
 - [Features](#bulb-features)
 - [Requirements](#construction-requirements)
-- [Installation](#white_check_marker-installation)
+- [Installation](#white_check_mark-installation)
 - [Quick Start](#rocket-quick-start)
 - [Technologies](#fire-technologies)
 - [Contributing](#robot-contributing)
@@ -78,8 +78,6 @@ _Obs: Only clone with SSH if you already have a safe SSH key configured._
 
    5. Finally, run your server using: `npm run dev`
 
-   _Obs: If you want, use yarn instead of npm._
-
 2. **Config the web directory, to run your fronted** \
     Run the server and go to the web folder using `cd web`, then:
 
@@ -104,9 +102,9 @@ _Obs: If you want, use yarn instead of npm._
 
 This project was build with:
 
-- Node.js + Express.js
-- React.js
-- React Native + Expo
+- [Node.js](https://nodejs.org/en/) + [Express.js](http://expressjs.com/)
+- [React.js](https://reactjs.org/)
+- [React Native](https://reactnative.dev/) + [Expo](https://expo.io/)
 
 # :robot: Contributing
 
