@@ -106,6 +106,7 @@ This project was build with:
 - [Node.js](https://nodejs.org/en/) + [Express.js](http://expressjs.com/)
 - [React.js](https://reactjs.org/)
 - [React Native](https://reactnative.dev/) + [Expo](https://expo.io/)
+- [SQLite](https://sqlite.org/index.html)
 
 # :robot: Contributing
 
