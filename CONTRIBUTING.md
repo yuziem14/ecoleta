@@ -12,7 +12,8 @@ Hello, in order to contribute with this project you can:
 
 # Commits and Code Standards
 
-Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) specification on your commits.
+Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) specification on your commits. \
+Be sure to only commit in the **ecoleta-starter** branch.
 
 # Bug reports
 
