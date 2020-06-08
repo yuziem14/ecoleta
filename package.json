@@ -13,7 +13,7 @@
     "ecoleta-starter"
   ],
   "author": "Yuri Ziemba",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "nunjucks": "^3.2.1",
