@@ -50,21 +50,24 @@
   - `git clone https://github.com/Yuziem14/ecoleta.git`
 
 - Using SSH protocol:
+
   - `git clone git@github.com:Yuziem14/ecoleta.git`
 
-- Switch  to this branch, running: `git checkout ecoleta-starter`
+- Switch to this branch, running: `git checkout ecoleta-starter`
 
 _Obs: Only clone with SSH if you already have a safe SSH key configured._
 
 # :rocket: Quick Start
+
 **Be sure to run the following steps inside this folder.**
-   1. In order to install dependencies, run: `npm install`
 
-   2. In order to setup the database, run: `npm run db:create`
+1.  In order to install dependencies, run: `npm install`
 
-   3. In order to seed the database, run: `npm run db:seed`
+2.  In order to setup the database, run: `npm run db:create`
 
-   4. Finally, run your server using: `npm run start`
+3.  In order to seed the database, run: `npm run db:seed`
+
+4.  Finally, run your server using: `npm run start`
 
 _Obs: If you want, use yarn instead of npm._
 
@@ -74,6 +77,7 @@ This project was build with:
 
 - [Node.js](https://nodejs.org/en/) + [Express.js](http://expressjs.com/)
 - [Nunjucks](https://mozilla.github.io/nunjucks/)
+- [SQLite](https://sqlite.org/index.html)
 
 # :robot: Contributing
 
